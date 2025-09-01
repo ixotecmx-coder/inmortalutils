@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ixotec.inmortal.utiles",
+      "sha256_cert_fingerprints": [
+        "AA:BB:CC:...:ZZ",   // SHA-256 debug (opcional pero útil)
+        "11:22:33:...:EE"    // SHA-256 release / Play App Signing
+      ]
+    }
+  }
+]

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Build de Diablo Immortal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- OG tags opcionales para preview en chats -->
+</head>
+<body>
+  <h1>Build compartida</h1>
+  <p id="q"></p>
+  <p>
+    <a href="https://play.google.com/store/apps/details?id=com.ixotec.inmortal.utiles">Instalar en Android</a><br>
+  </p>
+  <script>
+    const p = new URLSearchParams(location.search);
+    document.getElementById('q').textContent = bid=${p.get('bid')}  cid=${p.get('cid')};
+  </script>
+</body>
+</html>
