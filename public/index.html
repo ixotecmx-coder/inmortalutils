@@ -121,6 +121,39 @@
 
     footer{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;color:var(--muted)}
     a{color:#ffd77a}
+	
+	/* --- ESPACIO LATERAL EN MÓVILES + SAFE AREA --- */
+.container{
+  /* más aire en móviles */
+  padding-left: clamp(24px, 6vw, 32px);
+  padding-right: clamp(24px, 6vw, 32px);
+}
+
+/* si el navegador soporta safe areas (iOS Safari) */
+@supports (padding: max(0px)) {
+  .container{
+    padding-left: max(clamp(24px, 6vw, 32px), env(safe-area-inset-left));
+    padding-right: max(clamp(24px, 6vw, 32px), env(safe-area-inset-right));
+  }
+}
+
+/* un poco menos de “pegado” arriba/abajo en móvil */
+@media (max-width: 600px){
+  .hero{ padding: 40px 0 24px; }
+}
+
+/* --- CENTRAR EL LOGO DEL ASIDE --- */
+.aside .card{ text-align: center; }
+.aside .card img{
+  display: block;           /* ya lo tienes, lo dejamos explícito */
+  margin-inline: auto;      /* centra el bloque */
+  height: auto;             /* evita deformaciones */
+  max-width: 180px;         /* evita que se vea gigante en pantallas chicas */
+}
+@media (max-width: 360px){
+  h1{ font-size: clamp(24px, 8vw, 32px); }
+}
+
   </style>
 </head>
 <body>
