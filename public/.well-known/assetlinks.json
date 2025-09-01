@@ -5,9 +5,9 @@
       "namespace": "android_app",
       "package_name": "com.ixotec.inmortal.utiles",
       "sha256_cert_fingerprints": [
-        "2B:95:F1:4F:A4:85:EC:57:76:BA:23:76:99:92:F0:69:1E:FC:0A:AF:A5:70:DA:1D:83:4F:61:BD:8E:A4:4D:31",  
-        "25:9B:66:84:8D:EA:0D:06:55:89:04:F8:8A:60:F4:90:94:5A:6C:DE:A8:3C:37:9D:F5:E0:D5:F2:47:02:F6:9F",
-	"EC:D0:85:DE:28:71:06:9B:53:2B:DD:8C:25:B8:1A:34:CB:9F:3B:36:CB:65:2A:1C:DD:B1:E3:EC:CB:36:68:B4"
+        "2B:95:F1:4F:A4:85:EC:57:76:BA:23:76:99:92:F0:69:1E:FC:0A:AF:A5:70:DA:1D:83:4F:61:BD:8E:A4:4D:31",
+        "25:98:66:84:80:EA:0D:06:0E:55:89:04:F8:8A:60:F4:90:94:5A:6C:DE:A8:3C:37:9D:F5:F0:D5:F2:47:02:F6:9F",
+        "EC:D0:85:DE:D8:71:06:9D:96:53:2B:DD:8C:25:B8:13:34:CB:9F:3B:36:CB:65:2A:1C:DD:B1:E3:EC:CB:36:68:B4"
       ]
     }
   }
