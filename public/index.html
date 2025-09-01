@@ -1,20 +1,195 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Build de Diablo Immortal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- OG tags opcionales para preview en chats -->
+  <title>Inmortal Tools – Build compartida</title>
+  <meta name="description" content="Comparte y consulta builds, equipos y configuraciones para Diablo Immortal. Inmortal Tools: rápida, ligera y hecha para jugadores.">
+
+  <!-- Open Graph / Twitter for rich previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Inmortal Tools – Build compartida">
+  <meta property="og:description" content="Comparte y consulta builds, equipos y configuraciones para Diablo Immortal.">
+  <meta property="og:image" content="/icon-512.png">
+  <meta property="og:url" content="https://tudominio.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons (usa tu archivo subido al hosting) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Paleta épica inspirada en tu identidad */
+      --bg-dark: #0b0b0f;
+      --bg-card: #13131a;
+      --primary-600: #a31414; /* rojo profundo */
+      --primary-500: #c81f1f; /* rojo vivo */
+      --accent-500: #f4c430;  /* dorado */
+      --text-100: #f5f5f7;
+      --text-300: #cfcfd6;
+      --muted: #8a8aa3;
+      --ring: rgba(244,196,48,.35);
+      --shadow-strong: 0 10px 30px rgba(0,0,0,.6);
+      --radius-xl: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text-100);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(200,31,31,.25), transparent 60%),
+        radial-gradient(900px 500px at 95% 0%, rgba(244,196,48,.18), transparent 60%),
+        linear-gradient(180deg, #0b0b0f 0%, #0b0b0f 100%);
+    }
+    .container{max-width:1100px;margin-inline:auto;padding:24px}
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(11,11,15,.7);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .brand img{width:40px;height:40px}
+    .brand .name{font-family:Cinzel, serif;font-weight:800;letter-spacing:.5px}
+
+    .hero{padding:56px 0 32px}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    @media (max-width: 900px){.hero-wrap{grid-template-columns:1fr;}}
+
+    .card{
+      background:linear-gradient(180deg, #17171f 0%, #101018 100%);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:var(--radius-xl);
+      box-shadow: var(--shadow-strong);
+      padding:28px;
+    }
+    h1{font-family:Cinzel, serif;font-size:44px;line-height:1.12;margin:0 0 12px}
+    h1 .accent{color:var(--accent-500);text-shadow:0 0 18px rgba(244,196,48,.35)}
+    p.lead{margin:0;color:var(--text-300);font-size:18px}
+
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+    .btn{appearance:none;border:none;cursor:pointer;text-decoration:none;color:#111;font-weight:700;padding:14px 18px;border-radius:12px;display:inline-flex;align-items:center;gap:10px}
+    .btn-primary{background:linear-gradient(135deg, var(--accent-500), #ffe28a);box-shadow:0 6px 20px var(--ring)}
+    .btn-secondary{background:linear-gradient(135deg, #2a2a36, #1c1c26); color:var(--text-100); border:1px solid rgba(255,255,255,.08)}
+
+    .badge{display:inline-flex;align-items:center;gap:8px;color:#ffd77a;background:rgba(244,196,48,.12);border:1px solid rgba(244,196,48,.25);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:600}
+    .badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent-500);box-shadow:0 0 10px var(--accent-500)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    @media (max-width: 900px){.features{grid-template-columns:1fr 1fr}}
+    @media (max-width: 600px){.features{grid-template-columns:1fr}}
+    .feature{padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:linear-gradient(180deg,#161621,#111118)}
+    .feature h3{margin:8px 0 6px;font-size:18px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    .aside{display:grid;gap:16px}
+    .aside .mini{display:flex;align-items:center;gap:12px;padding:14px;border:1px dashed rgba(255,255,255,.12);border-radius:12px}
+    .mini code{background:#1a1a25;border:1px solid rgba(255,255,255,.08);padding:2px 6px;border-radius:8px}
+
+    .section{padding:18px 0 64px}
+    .section h2{font-family:Cinzel, serif;font-size:26px;margin:0 0 12px}
+
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:22px 0;color:var(--muted)}
+    a{color:#ffd77a}
+  </style>
 </head>
 <body>
-  <h1>Build compartida</h1>
-  <p id="q"></p>
-  <p>
-    <a href="https://play.google.com/store/apps/details?id=com.ixotec.inmortal.utiles">Instalar en Android</a><br>
-  </p>
+  <header>
+    <div class="container bar">
+      <a class="brand" href="#">
+        <img src="/icon-192.png" alt="Inmortal Tools" width="40" height="40"/>
+        <span class="name">Inmortal Tools</span>
+      </a>
+      <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.ixotec.inmortal.utiles" target="_blank" rel="noopener">Instalar en Android</a>
+    </div>
+  </header>
+
+  <main class="container hero">
+    <div class="hero-wrap">
+      <section class="card">
+        <span class="badge">Build compartida</span>
+        <h1>
+          Comparte <span class="accent">builds</span> y configuraciones
+          <br>para <span class="accent">Diablo Immortal</span>
+        </h1>
+        <p class="lead">Abre esta página desde la app o el enlace que te compartieron. Detectamos los parámetros de tu build y te llevamos directo al detalle en la aplicación.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.ixotec.inmortal.utiles" target="_blank" rel="noopener">Disponible en Google Play</a>
+          <a class="btn btn-secondary" href="#caracteristicas">Ver características</a>
+        </div>
+        <div class="aside" style="margin-top:18px">
+          <div class="mini">Parámetros recibidos: <code id="params">bid=– cid=–</code></div>
+          <div class="mini">Si tienes la app instalada, este enlace abrirá la build directamente.</div>
+        </div>
+      </section>
+      <aside class="aside">
+        <div class="card" style="text-align:center">
+          <img src="/icon-512.png" alt="Logo Inmortal Tools" width="128" height="128" style="filter: drop-shadow(0 10px 20px rgba(0,0,0,.6)); margin-bottom:10px">
+          <p style="color:var(--muted); margin:0">Identidad visual con rojo épico y detalles dorados.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Información de la tienda</h3>
+          <p class="lead" style="font-size:14px">Consulta reseñas, novedades y screenshots en Google Play.</p>
+          <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.ixotec.inmortal.utiles" target="_blank" rel="noopener">Ir a Google Play</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <section id="caracteristicas" class="container section">
+    <h2>Características principales</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Builds rápidas</h3>
+        <p>Crea, guarda y comparte configuraciones con un toque.</p>
+      </div>
+      <div class="feature">
+        <h3>Comparte por enlace</h3>
+        <p>Genera un link con <code>bid</code> y <code>cid</code> para abrir la build exacta.</p>
+      </div>
+      <div class="feature">
+        <h3>Ligera y sin distracciones</h3>
+        <p>Interfaz clara, con colores rojo y dorado que respetan tu identidad.</p>
+      </div>
+      <div class="feature">
+        <h3>Actualizada</h3>
+        <p>Datos y equipos al día con cada parche importante.</p>
+      </div>
+      <div class="feature">
+        <h3>Modo offline</h3>
+        <p>Consulta la última build cargada aun sin conexión.</p>
+      </div>
+      <div class="feature">
+        <h3>Privacidad</h3>
+        <p>No pedimos datos personales para ver o compartir builds.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <small>© <span id="year"></span> Inmortal Tools</small>
+      <small>Hecho por fans de Diablo Immortal · No afiliado a Blizzard Entertainment</small>
+    </div>
+  </footer>
+
   <script>
+    // Leer parámetros bid y cid (compatibilidad con tu versión anterior)
     const p = new URLSearchParams(location.search);
-    document.getElementById('q').textContent = bid=${p.get('bid')}  cid=${p.get('cid')};
+    const bid = p.get('bid') || '—';
+    const cid = p.get('cid') || '—';
+    document.getElementById('params').textContent = `bid=${bid}  cid=${cid}`;
+
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
