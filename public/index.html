@@ -86,7 +86,7 @@
       margin:0 0 12px;
     }
     h1 .accent{color:var(--accent-500);text-shadow:0 0 18px rgba(244,196,48,.35)}
-    p.lead{margin:0;color:var(--text-300);font-size:clamp(14px,2.8vw,18px)}
+    p.lead{margin:0;color:var(--text-200);font-size:clamp(14px,2.8vw,18px)}
 
     .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
     .btn{
@@ -153,6 +153,26 @@
 @media (max-width: 360px){
   h1{ font-size: clamp(24px, 8vw, 32px); }
 }
+
+/* Separar las secciones entre sí y de los bordes */
+.card{
+  margin-bottom: 28px;              /* separa entre cards consecutivas */
+  padding: clamp(20px, 5vw, 28px);  /* más aire interno */
+}
+
+/* Opción: redondear y espaciar más en móviles */
+@media (max-width: 600px){
+  .card{
+    margin-bottom: 32px;
+    border-radius: 20px;
+  }
+}
+
+/* Evitar que el logo quede “pegado” arriba/abajo */
+.aside .card img{
+  margin-block: 16px; /* agrega espacio arriba y abajo del logo */
+}
+
 
   </style>
 </head>
